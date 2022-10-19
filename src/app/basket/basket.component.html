@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="flex flex-row">
+    <div class="basis-1/6">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="basis-11/12">
+      <h1 [appTitleH1]="'Order'"></h1>
+        <div style="height: 565px;" class="flex flex-col overflow-x-hidden overflow-y-scroll">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                  <table class="min-w-full">
+                    <thead class="border-b">
+                      <tr>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            Id
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Customer
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Product
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Pro. Name
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Price
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Image
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="border-b" *ngFor="let item of basket; let i = index" >
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ i + 1 }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">  {{ item.id }} </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {{ item.must_id }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ item.urun_id! }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ item.urun_adi! }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ item.fiyat! | tlPipe }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <img src="{{ item.thumb! }}" class="w-10" />
+                        </td>
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

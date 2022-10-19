@@ -1,0 +1,8 @@
+<div class="flex flex-row justify-between">
+    <div>
+        <img class="h-16 p-2" src="../../../assets/etiya_logo.png" />
+    </div>
+    <div class="h-16 p-4">
+        <a [routerLink]="['/profile']" > <fa-icon class="text-2xl" [icon]="faUser"></fa-icon> </a> | {{ user.userName }} {{ user.userSurname | uppercase }}
+    </div>
+</div>

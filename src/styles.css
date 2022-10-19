@@ -1,0 +1,11 @@
+@import "~ngx-smart-modal/ngx-smart-modal";
+@import "app/app.component";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nsm-dialog-btn-close {
+    right: 10px;
+    height: 10px;
+}

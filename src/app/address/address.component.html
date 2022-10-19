@@ -1,0 +1,128 @@
+<app-header></app-header>
+<div class="flex flex-row">
+    <div class="basis-1/6">
+        <app-navbar></app-navbar>
+    </div>
+
+    <div class="basis-11/12">
+        <h1 [appTitleH1]="'Address'"></h1>        
+        <div class="flex flex-row space-x-4">
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">City*</div>
+                <input [(ngModel)]="addres.il" type="text" class="form-input rounded-full w-full" placeholder="City" />
+            </div>
+
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">District*</div>
+                <input [(ngModel)]="addres.ilce"  type="text" class="form-input rounded-full w-full" placeholder="District" />
+            </div>
+        </div>
+
+        <div class="flex flex-row space-x-4">
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">Neighborhood*</div>
+                <input [(ngModel)]="addres.Mahalle" type="text" class="form-input rounded-full w-full" placeholder="Neighborhood" />
+            </div>
+
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">Address*</div>
+                <input [(ngModel)]="addres.adres"  type="text" class="form-input rounded-full w-full" placeholder="Address" />
+            </div>
+        </div>
+        <div class="flex flex-row space-x-4">
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">No*</div>
+                <input [(ngModel)]="addres.kapiNo" type="text" class="form-input rounded-full w-full" placeholder="No" />
+            </div>
+
+            <div class="mt-3 w-full">
+                <div class="mb-1 text-neutral-400">Note*</div>
+                <input [(ngModel)]="addres.not"  type="text" class="form-input rounded-full w-full" placeholder="Note" />
+            </div>
+        </div>
+
+        <button (click)="fncAddressAdd()" class="mt-3 px-4 py-3 rounded-full bg-emerald-800 text-white" type="submit">Send</button>
+
+
+
+        <div style="height: 300px;" class="flex flex-col overflow-x-hidden overflow-y-scroll">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                  <table class="min-w-full">
+                    <thead class="border-b">
+                      <tr>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          #
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Id
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          City
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          District
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Address
+                        </th>
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-0 py-4 text-left">
+                          Delete
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="border-b" *ngFor="let item of allAddress; let i = index" >
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ i + 1 }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> <a (click)="funcDetail( i ); ngxSmartModalService.getModal('addressModal').open();" class="cursor-pointer" >  {{ item.id }} </a> </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          {{ item.il }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ item.ilce }}
+                        </td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ item.adres }}
+                        </td>
+                        <td class="text-sm text-center text-gray-900 font-light px-1 py-4 whitespace-nowrap">
+                            <button (click)="fncRemove(item.id!)" class="text-white bg-red-500 p-1 rounded"><fa-icon class="text-base text-center" [icon]="faTrash"></fa-icon></button>
+                        </td>
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ngx-smart-modal #addressModal identifier="addressModal">
+            <h1 class="text-2xl text-center"> {{ modelAddres.il }} </h1>
+
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >District: </div><div>{{ modelAddres.ilce }}</div>
+            </div>
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >Neighborhood: </div><div>{{ modelAddres.Mahalle }}</div>
+            </div>
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >Address: </div><div>{{ modelAddres.adres }}</div>
+            </div>
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >Address No: </div><div>{{ modelAddres.kapiNo }}</div>
+            </div>
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >Note: </div><div>{{ modelAddres.not }}</div>
+            </div>
+            <div class="mt-2">
+              <div class="float-left" style="width: 120px;" >Date: </div><div>{{ modelAddres.tarih }}</div>
+            </div>
+            
+          </ngx-smart-modal>
+
+    </div>
+</div>
+

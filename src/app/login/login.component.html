@@ -1,0 +1,31 @@
+<div class="flex">
+    <div class="flex-auto w-48">
+        <img src="../../assets/etiya_logo.png" />
+    </div>
+    <div class="flex-auto w-48">
+        <div>
+            <h2 class="text-3xl"> Admin Login </h2>
+            <form [formGroup]="userForm" (ngSubmit)="fncLogin()" method="post" >
+
+                <div class="mt-3">
+                    <div class="mb-1 text-neutral-400">User Name*</div>
+                    <input type="email" formControlName="email" class="form-input rounded-full w-full" placeholder="E-Mail" id="email" name="email" />
+                    <div class="text-red-600" *ngIf="email?.invalid && email?.touched"> Email Entry! </div>
+                </div>
+
+                <div class="mt-3">
+                    <div class="mb-1 text-neutral-400">Password*</div>
+                    <input type="password" formControlName="password" class="form-input rounded-full w-full" placeholder="Password" id="password" name="password" />
+                    <div class="text-red-600" *ngIf="password?.invalid && password?.touched"> Password Entry! </div>
+                </div>
+
+                <div class="mt-3">
+                    <input type="checkbox" formControlName="remember" id="remember" name="remember" /><label for="remember"> Remember </label> 
+                </div>
+
+                <button *ngIf="email?.valid && password?.valid" class="mt-3 px-4 py-3 rounded-full bg-emerald-800 text-white" type="submit">Send</button>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div>
+    <div class="border-l-2" routerLinkActive=" border-l-indigo-500  ">
+        <a [routerLink]="['/admin']" >
+            <div style="height: 130px; width: 120px; padding-top: 50px;"
+                class="bg-zinc-200 hover:bg-zinc-300 text-center"  >
+                <fa-icon class="text-2xl" [icon]="faUsers"></fa-icon>
+                <div>B2C</div>
+            </div>
+        </a>
+    </div>
+    <div class="border-l-2" routerLinkActive="border-l-indigo-500 ">
+        <a [routerLink]="['/address']">
+            <div style="height: 130px; width: 120px; padding-top: 50px;"
+                class="bg-zinc-200 hover:bg-zinc-300 text-center p-3">
+                <fa-icon class="text-2xl" [icon]="faBriefcase"></fa-icon>
+                <div>B2B</div>
+            </div>
+        </a>
+    </div>
+    <div class="border-l-2" routerLinkActive=" border-l-indigo-500">
+        <a [routerLink]="['/basket']">
+            <div style="height: 130px; width: 120px; padding-top: 50px;"
+                class="bg-zinc-200 hover:bg-zinc-300 text-center p-3">
+                <fa-icon class="text-2xl" [icon]="faBars"></fa-icon>
+            </div>
+        </a>
+    </div>
+
+    <div class="border-l-2" routerLinkActive="border-l-indigo-500 ">
+        <a [routerLink]="['/hand']">
+            <div style="height: 130px;width: 120px; padding-top: 50px;"
+                class="bg-zinc-200 hover:bg-zinc-300 text-center p-3">
+                <fa-icon class="text-2xl" [icon]="faHandPointRight"></fa-icon>
+            </div>
+        </a>
+    </div>
+
+    <div class="border-l-2" routerLinkActive="border-l-indigo-500 ">
+        <a (click)="fncLogOut()" class="cursor-pointer">
+            <div style="height: 130px;width: 120px;padding-top: 50px;"
+                class="bg-zinc-200 hover:bg-zinc-300 text-center p-3">
+                <fa-icon class="text-2xl" [icon]="faRightFromBracket"></fa-icon>
+            </div>
+        </a>
+    </div>
+
+
+
+</div>
